@@ -7,17 +7,17 @@ module.exports = {
   },
 
   doLogin: async (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     const user = await User.findOne({
       where: {
-        email,
+        username,
       },
     });
 
     if (!user) {
       return res.render('login', {
-        error: 'Email tidak ditemukan',
+        error: 'Username tidak ditemukan',
       });
     }
 
@@ -31,8 +31,9 @@ module.exports = {
 
     req.session.user = {
       id: user.id,
-      email: user.email,
-      nama: user.nama,
+      nama_lengkap: user.nama_lengkap,
+      jenis_kelamin: user.jenis_kelamin,
+      username: user.username
     };
 
     return res.redirect('/dashboard');
@@ -41,5 +42,41 @@ module.exports = {
   logout: async (req, res) => {
     req.session.destroy();
     return res.redirect('/');
+  },
+
+  register: async (req, res) => {
+    return res.render('register');
+  },
+  
+  doRegister: async (req, res) => {
+    const { nama_lengkap, jenis_kelamin, username, password } = req.body;
+
+    const user = await User.findOne({
+      where: {
+        username,
+      },
+    });
+
+    if (user) {
+      return res.render('register', {
+        error: 'Username sudah digunakan, silahkan pilih username lain.',
+      });
+    }
+
+    const newUser = await User.create({
+      nama_lengkap: nama_lengkap,
+      jenis_kelamin: jenis_kelamin,
+      username: username,
+      password: password
+    });
+
+    req.session.user = {
+      id: newUser.id,
+      nama_lengkap: newUser.nama_lengkap,
+      jenis_kelamin: newUser.jenis_kelamin,
+      username: newUser.username
+    };
+
+    return res.redirect('/dashboard');
   },
 };

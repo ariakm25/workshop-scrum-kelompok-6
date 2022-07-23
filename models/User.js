@@ -7,8 +7,9 @@ const User = db.define('User', {
     autoIncrement: true,
     primaryKey: true,
   },
-  nama: DataTypes.STRING(80),
-  email: {
+  nama_lengkap: DataTypes.STRING(80),
+  jenis_kelamin: DataTypes.ENUM('Pria', 'Wanita'),
+  username: {
     type: DataTypes.STRING(255),
     unique: true,
   },

@@ -9,9 +9,13 @@ const { about } = require('../controllers/about.controller');
 const router = require('express').Router();
 
 router.get('/', indexController.index);
+router.get('/places', indexController.places);
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
 router.get('/logout', auth, authController.logout);
+
+router.get('/register', guest, authController.register);
+router.post('/doRegister', guest, authController.doRegister);
 
 router.get('/dashboard', auth, dashboardController.dashboard);
 router.get('/about', guest, aboutController.about);

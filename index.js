@@ -38,7 +38,7 @@ db.authenticate()
   );
 
 db.sync({
-  alter: false,
+  alter: true,
 })
   .then(() => console.log('[DB] Database synced successfully.'))
   .catch((error) => console.error('[DB] Error:', error));

@@ -1,0 +1,50 @@
+<%- include('./includes/header'); %>
+
+  <div class="container-fluid">
+    <div style="margin-top:5rem">
+      <div class="rounded d-flex justify-content-center">
+        <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+          <div class="text-center">
+            <h3 class="text-primary">Register</h3>
+          </div>
+          <%if (typeof error !=="undefined" && error ) {%>
+            <div class="alert alert-danger" role="alert">
+              <%= error %>
+              </div>
+              <%}%>
+                <form action="/doRegister" method="POST">
+                  <div class="p-4">
+                    <div class="input-group mb-3">
+                      <input name="nama_lengkap" type="text" class="form-control"
+                        placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="input-group mb-3">
+                      <select name="jenis_kelamin" class="form-control"
+                        required>
+                        <option value="pria">Laki-laki</option>
+                        <option value="wanita">Perempuan</option>
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input name="username" type="text" class="form-control"
+                        placeholder="Username" required>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input name="password" minlength="7" type="password"
+                        class="form-control" placeholder="Password" required>
+                    </div>
+                    <button class="btn btn-primary text-center mt-2"
+                      type="submit">
+                      Daftar
+                    </button>
+                    <a href="/login" class="btn btn-danger text-center mt-2">
+                    Batal
+                    </a>                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%- include('./includes/footer'); %>
