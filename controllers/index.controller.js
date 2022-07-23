@@ -7,5 +7,8 @@ module.exports = {
   },
   photos: async (req, res) => {
     return res.render('photos');
-  },  
+  },
+  traditonalfood: async (req, res) => {
+    return res.render('traditionalfood');
+  },
 };

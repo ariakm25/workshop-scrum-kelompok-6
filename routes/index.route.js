@@ -9,8 +9,9 @@ const { about } = require('../controllers/about.controller');
 const router = require('express').Router();
 
 router.get('/', indexController.index);
-router.get('/place', indexController.places);
+router.get('/places', indexController.places);
 router.get('/photos', indexController.photos);
+router.get('/traditionalfood', indexController.traditonalfood);
 
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
