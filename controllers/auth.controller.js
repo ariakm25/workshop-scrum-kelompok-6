@@ -7,11 +7,11 @@ module.exports = {
   },
 
   doLogin: async (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     const user = await User.findOne({
       where: {
-        email,
+        username,
       },
     });
 
@@ -31,8 +31,9 @@ module.exports = {
 
     req.session.user = {
       id: user.id,
-      email: user.email,
-      nama: user.nama,
+      nama_lengkap: user.nama_lengkap,
+      jenis_kelamin: user.jenis_kelamin,
+      username: user.username
     };
 
     return res.redirect('/dashboard');
