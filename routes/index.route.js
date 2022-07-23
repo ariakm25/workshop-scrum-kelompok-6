@@ -22,4 +22,6 @@ router.post('/doRegister', guest, authController.doRegister);
 router.get('/dashboard', auth, dashboardController.dashboard);
 router.get('/about', guest, aboutController.about);
 
+router.get('/rumah_adat', indexController.rumahAdat);
+
 module.exports = router;

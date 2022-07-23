@@ -8,4 +8,7 @@ module.exports = {
   photos: async (req, res) => {
     return res.render('photos');
   },  
+  rumahAdat: async (req, res) => {
+    return res.render('rumah_adat');
+  },  
 };
