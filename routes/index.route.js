@@ -12,7 +12,7 @@ const router = require('express').Router();
 
 router.get('/', check, indexController.index);
 router.get('/places', check, indexController.places);
-router.get('/photos', indexController.photos);
+router.get('/photos', check, indexController.photos);
 
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
