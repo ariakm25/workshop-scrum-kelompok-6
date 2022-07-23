@@ -8,6 +8,8 @@ const router = require('express').Router();
 
 router.get('/', indexController.index);
 router.get('/place', indexController.place);
+router.get('/photos', indexController.photos);
+
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
 router.get('/logout', auth, authController.logout);

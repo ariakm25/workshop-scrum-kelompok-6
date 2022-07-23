@@ -5,4 +5,7 @@ module.exports = {
   place: async (req, res) => {
     return res.render('place');
   },
+  photos: async (req, res) => {
+    return res.render('photos');
+  },  
 };
