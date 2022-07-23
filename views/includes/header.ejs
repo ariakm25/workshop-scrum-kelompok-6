@@ -29,7 +29,7 @@
             <a class="nav-link" href="/traditionalfood">Traditional Food</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/places">Places</a>
+            <a class="nav-link" href="/place">Places</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/rumahadat">Rumah Adat</a>
@@ -38,6 +38,15 @@
             <a class="nav-link" href="/culture">Culture</a>
           </li>          
         </ul>
+        <% if(locals.user != null) { %>
+        <form class="d-flex" role="search">
+          <a href="/logout" class="btn btn-outline-danger">Logout</a>
+        </form>        
+        <% } else { %>
+          <form class="d-flex" role="search">
+            <a href="/login" class="btn btn-outline-success">Login</a>
+          </form>
+        <% } %>
       </div>
     </div>
   </nav>
