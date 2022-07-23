@@ -7,7 +7,7 @@ const dashboardController = require('../controllers/dashboard.controller');
 const router = require('express').Router();
 
 router.get('/', indexController.index);
-router.get('/place', indexController.place);
+router.get('/places', indexController.places);
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
 router.get('/logout', auth, authController.logout);
