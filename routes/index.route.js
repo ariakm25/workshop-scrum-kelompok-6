@@ -11,6 +11,8 @@ const router = require('express').Router();
 
 router.get('/', indexController.index);
 router.get('/places', indexController.places);
+router.get('/photos', indexController.photos);
+
 router.get('/login', guest, authController.login);
 router.post('/login', guest, authController.doLogin);
 router.get('/logout', auth, authController.logout);
@@ -21,5 +23,7 @@ router.post('/doRegister', guest, authController.doRegister);
 router.get('/dashboard', auth, dashboardController.dashboard);
 router.get('/about', guest, aboutController.about);
 router.get('/culture', guest, kulturController.kultur);
+
+router.get('/rumah_adat', indexController.rumahAdat);
 
 module.exports = router;
