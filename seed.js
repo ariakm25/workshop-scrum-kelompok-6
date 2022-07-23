@@ -3,15 +3,16 @@ const User = require('./models/User');
 
 User.findOne({
   where: {
-    email: 'admin@admin.com',
+    username: 'admin',
   },
 })
   .then((user) => {
     if (!user) {
       let password = hashSync('admin', 10);
       User.create({
-        nama: 'admin',
-        email: 'admin@admin.com',
+        nama_lengkap: 'admin',
+        jenis_kelamin: 'Pria',
+        username: 'admin',
         password,
       });
     }
