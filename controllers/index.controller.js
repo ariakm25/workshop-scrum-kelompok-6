@@ -2,8 +2,8 @@ module.exports = {
   index: async (req, res) => {
     return res.render('index');
   },
-  place: async (req, res) => {
-    return res.render('place');
+  places: async (req, res) => {
+    return res.render('places');
   },
   photos: async (req, res) => {
     return res.render('photos');
